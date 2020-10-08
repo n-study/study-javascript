@@ -24,3 +24,24 @@ log(
     .map(x => x ** 2)
     .reduce((acc, val) => acc + val)
 );
+
+
+// map: 매핑!
+
+
+
+
+
+
+
+
+// reduce: 접는 거
+
+
+
+
+
+
+
+
+// filter: 참인 것만 돌려 줌
