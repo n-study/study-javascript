@@ -30,6 +30,7 @@ log(and(T)(F) === K(F)(T));
 log(and(F)(F) === KI(F)(F));
 log(and(F)(T) === KI(T)(F));
 
+// church_numerals
 const zero = f => a => a;
 const once = f => a => f(a);
 const twice = f => a => f(f(a));
