@@ -97,6 +97,7 @@ log(
 const map = (f, xs) => {
   const res = [];
   for (const x of xs) {
+    log("map", x);
     res.push(f(x));
   }
   return res;
@@ -112,6 +113,7 @@ const filter = (f, xs) => {
   const res = [];
   for (const x of xs) {
     if (f(x)) {
+      log("filter", x);
       res.push(x);
     }
   }
@@ -161,6 +163,20 @@ log(
   )
 );
 
+const take = function (n, xs) {
+  const arr = []
+  for (const x of xs) {
+    if (arr.length === n) break;
+    arr.push(x);
+  }
+  return arr;
+};
+
+log(
+  reduce((a, b) => a + b, 0,
+    map(x => x ** 2,
+      take(1,
+        filter(x => x % 2, arr)))))
 
 
 
