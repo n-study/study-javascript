@@ -217,6 +217,21 @@ function h2(xs, len) {
 }
 
 // log(h1(arr, len));
+
 log(f2(arr, len));
 log(g2(arr, len));
 log(h2(arr, len));
+
+
+/* const tmp = (
+  arr
+    .filter(x => x % 3 === 0) // 3의 배수
+    .slice(0, 5) // take
+    .map(x => x ** 3)
+);
+
+const sum = tmp.reduce((acc, x) => acc + x, 0);
+
+// log(tmp);
+log(sum / tmp.length); */
+
