@@ -12,13 +12,16 @@ function loadScript(src) {
 loadScript("./makeFunction.js")
   .then((script) => {
     console.log(`${script.src} is loaded!`);
-    loadScript("./option.js");
-  })
-  .then((script) => {
-    console.log(`${script.src} is loaded!`);
-    loadScript("./argument.js");
-  })
-  .then((script) => {
-    console.log(`${script.src} is loaded!`);
-    make(option, ...arguments);
+
+    loadScript("./option.js")
+      .then((script) => {
+        console.log(`${script.src} is loaded!`);
+
+        loadScript("./argument.js")
+          .then((script) => {
+            console.log(`${script.src} is loaded!`);
+
+            make(option, ...arguments);
+          });
+      });
   });
