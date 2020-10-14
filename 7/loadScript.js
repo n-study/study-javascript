@@ -7,7 +7,9 @@ function loadScript(src, callback) {
 }
 
 // loadScript는 비동기로 작동
-loadScript("./makeFunction.js");
+loadScript("./makeFunction.js", (script) => {
+  console.log(`${script.src} is loaded!`);
 
-// 존재하지 않는 함수여서 에러가 뜸
-make();
+  // 잘 실행이 된다.
+  make();
+});
