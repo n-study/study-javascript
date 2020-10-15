@@ -1,4 +1,5 @@
 import express from 'express';
+import fs from 'fs';
 
 const app = express();
 app.use("/", (_, res, next) => {
@@ -72,7 +73,7 @@ app.get("/2", (_, res) => {
   res.json({
     title: "9일간의 자바스크립트",
     tasks: Object.keys(tasks),
-    prefix: "/2/randomData",
+    uri: "/2/randomData",
   });
 });
 
@@ -81,6 +82,17 @@ for (const [key, value] of Object.entries(tasks)) {
     res.json(value);
   });
 }
+
+app.get("/3", (_, res) => {
+  const data = fs.readFileSync("./lorem.html").toString().split("\n");
+  const slice = Math.floor(Math.random() * (data.length - 100));
+  res.json({
+    data: data.slice(slice, slice+100).map((v) => ({
+      title: v,
+      done: Math.random() > 0.5,
+    })),
+  });
+});
 
 app.use((_, res) => {
   res.status(404).json({msg: "no data"});
