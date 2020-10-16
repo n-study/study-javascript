@@ -86,10 +86,11 @@ for (const [key, value] of Object.entries(tasks)) {
 app.get("/3", (_, res) => {
   const data = fs.readFileSync("./lorem.html").toString().split("\n");
   const slice = Math.floor(Math.random() * (data.length - 100));
+  const percentage = Math.random();
   res.json({
     data: data.slice(slice, slice+100).map((v) => ({
       title: v,
-      done: Math.random() > 0.5,
+      done: Math.random() > percentage,
     })),
   });
 });
