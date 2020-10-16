@@ -95,6 +95,96 @@ app.get("/3", (_, res) => {
   });
 });
 
+type subject = 'korean' | 'math' | 'english' | 'social';
+
+interface IStudent {
+  name: string;
+  grade: 1 | 2 | 3;
+  class: 1 | 2 | 3 | 4 | 5 | 6;
+  score: {
+    [key: string]: number;
+  }
+}
+
+const students: IStudent[] = [
+  {
+    name: "A",
+    grade: 2,
+    class: 4,
+    score: {
+      korean: 54,
+      english: 69,
+      math: 98,
+      social: 95,
+      science: 100,
+    },
+  },
+  {
+    name: "B",
+    grade: 2,
+    class: 1,
+    score: {
+      korean: 58,
+      english: 86,
+      math: 76,
+      social: 96,
+      science: 89,
+    },
+  },
+  {
+    name: "C",
+    grade: 3,
+    class: 3,
+    score: {
+      korean: 96,
+      english: 69,
+      math: 85,
+      social: 76,
+      science: 91,
+    },
+  },
+  {
+    name: "D",
+    grade: 1,
+    class: 5,
+    score: {
+      korean: 85,
+      english: 96,
+      math: 85,
+      social: 92,
+      science: 95,
+    },
+  },
+  {
+    name: "E",
+    grade: 1,
+    class: 6,
+    score: {
+      korean: 100,
+      english: 93,
+      math: 90,
+      social: 100,
+      science: 87,
+    },
+  },
+  {
+    name: "F",
+    grade: 1,
+    class: 2,
+    score: {
+      korean: 92,
+      english: 84,
+      math: 82,
+      social: 94,
+      science: 74,
+    },
+  },
+]
+
+app.get("/4", (_, res) => {
+  res.json(students);
+});
+
 app.use((_, res) => {
   res.status(404).json({msg: "no data"});
 });
