@@ -95,14 +95,14 @@ app.get("/3", (_, res) => {
   });
 });
 
-type subject = 'korean' | 'math' | 'english' | 'social';
+type subject = 'korean' | 'math' | 'english' | 'social' | 'science';
 
 interface IStudent {
   name: string;
   grade: 1 | 2 | 3;
   class: 1 | 2 | 3 | 4 | 5 | 6;
   score: {
-    [key: string]: number;
+    [key in subject]: number;
   }
 }
 
